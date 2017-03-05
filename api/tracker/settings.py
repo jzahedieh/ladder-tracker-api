@@ -84,6 +84,12 @@ DATABASES = {
     }
 }
 
+# SMTP Email (mailhog)
+EMAIL_HOST = 'mail'
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
+EMAIL_PORT = 1025
+EMAIL_USE_TLS = False
 
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators

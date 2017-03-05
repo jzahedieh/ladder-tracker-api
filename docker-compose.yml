@@ -11,3 +11,7 @@
        - "8000:8000"
      depends_on:
        - db
+   mail:
+    image: mailhog/mailhog
+    ports:
+      - "8025:8025"
