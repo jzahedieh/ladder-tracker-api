@@ -2,6 +2,8 @@
  services:
    db:
      image: postgres
+     ports:
+       - "5432:5432"
    api:
      build: api/
      command: python manage.py runserver 0.0.0.0:8000
@@ -15,3 +17,9 @@
     image: mailhog/mailhog
     ports:
       - "8025:8025"
+   pgadmin:
+    image: fenglc/pgadmin4
+    ports:
+      - "5050:5050"
+    links:
+      - db:postgres
