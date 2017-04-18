@@ -15,9 +15,11 @@ class PlayerSerializer(serializers.ModelSerializer):
 
 
 class LadderSerializer(serializers.ModelSerializer):
+    players = serializers.StringRelatedField(many=True)
+
     class Meta:
         model = Ladder
-        fields = ('id', 'season', 'division', 'ladder_type')
+        fields = ('id', 'season', 'division', 'ladder_type', 'players')
 
 
 class LeagueSerializer(serializers.ModelSerializer):

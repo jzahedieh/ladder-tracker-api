@@ -12,16 +12,22 @@ class Player(models.Model):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
 
+    def __unicode__(self):
+        return '%s %s' % (self.first_name, self.last_name)
+
 
 class Ladder(models.Model):
     season = models.ForeignKey(Season)
     division = models.IntegerField()
     ladder_type = models.CharField(max_length=100)
 
+    def __unicode__(self):
+        return '%s %s' % (self.season, self.division)
+
 
 class League(models.Model):
-    ladder = models.ForeignKey(Ladder)
-    player = models.ForeignKey(Player)
+    ladder = models.ForeignKey(Ladder, related_name='ladders')
+    player = models.ForeignKey(Player, related_name='players')
     sort_order = models.IntegerField(default=0)
 
 
